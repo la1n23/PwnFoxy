@@ -2,13 +2,13 @@
 
 /* Containers Identity */
 async function getOrCreateIdentity(color) {
-    const name = `PwnFox-${color}`
+    const containerColor = `Pwn/${color}`
     const icon = "fingerprint"
-    const [identity] = await browser.contextualIdentities.query({ name })
+    const [identity] = await browser.contextualIdentities.query({ name: containerColor })
     if (identity !== undefined) {
         return identity
     }
-    return await browser.contextualIdentities.create({ name, color, icon })
+    return await browser.contextualIdentities.create({ name: containerColor, color, icon })
 }
 
 async function createContainerTab(color) {
@@ -25,21 +25,16 @@ async function bindCheckboxToConfig(selector, config, configName) {
 
 
 
-function createContainerTabButtons() {
-    const colors = [
-        "blue",
-        "turquoise",
-        "green",
-        "yellow",
-        "orange",
-        "red",
-        "pink",
-        "purple"
-    ]
+async function createContainerTabButtons(config) {
+    const containers = await config.get('containers')
     const container = document.querySelector("#identities")
-    colors.forEach(color => {
+    containers.list.forEach(({ color, name }) => {
         const div = document.createElement("div")
         div.classList.add("identity", color)
+        div.title = color
+        if (name) {
+            div.title = div.title + " - " + name
+        }
         div.addEventListener("click", ev => {
             createContainerTab(color)
         })
@@ -64,7 +59,7 @@ async function togglePwnfox(enabled) {
 
 async function main() {
 
-    createContainerTabButtons()
+    await createContainerTabButtons(config)
 
     bindCheckboxToConfig("#option-enabled", config, "enabled")
     bindCheckboxToConfig("#option-useBurpProxyAll", config, "useBurpProxyAll")

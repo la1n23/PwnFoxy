@@ -21,7 +21,14 @@
                 <input type="text" id="burpport">
             </li>
         </ul>
-        <button type="submit" id="save">Save</button>
+        <h2>Containers</h2>
+        <div class="containers">
+            <p>Do not modify color values, they are fixed for Firefox Containers, but you can change their order that will be reflected on PwnFoxy popup.</p>
+            <textarea id="containers" spellcheck="false" autocomplete="false"></textarea>
+        </div>
+        <div class="submit">
+            <button type="submit" id="save">Save</button>
+        </div>
         <hr>
         <h2>Toolbox</h2>
         <div id="savedToolbox" class="file-list">
@@ -65,7 +72,7 @@
                     </button>
             </div>
             <div class="file-list-body">
-                <textarea disabled spellcheck="false" autocomplete="false"></textarea>
+                <textarea id="toolbox" disabled spellcheck="false" autocomplete="false"></textarea>
             </div>
         </div>
 

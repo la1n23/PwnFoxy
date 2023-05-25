@@ -82,15 +82,15 @@ Headers stripped:
 
 
 You can find the latest build here:
-* [https://github.com/B-i-t-K/PwnFox/releases](https://github.com/B-i-t-K/PwnFox/releases)
+* [https://github.com/la1n23/PwnFoxy/releases](https://github.com/la1n23/PwnFoxy/releases)
 
 ### Firefox
- - visit `about:addons` and choose install from file, then select `PwnFox-$version.xpi`
+ - visit `about:addons` and choose install from file, then select `PwnFoxy-$version.xpi`
  - or install from 
-[https://addons.mozilla.org/en-US/firefox/addon/pwnfox/](https://addons.mozilla.org/en-US/firefox/addon/pwnfox/)
+[https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/](https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/)
 
 ### Burp
-- Go to extender and add `PwnFox-Burp.jar` as a java extension.
+- Go to extender and add `PwnFoxy-Burp.jar` as a java extension.
 
 ## Build
 
@@ -107,7 +107,7 @@ web-ext sign --api-key="$KEY" --api-secret="$SECRET"
 ```
 ### Burp
 
-Open and compile with Intellij IDEA
+Open and compile with Intellij IDEA (Ctrl+F9)
 
 ## Changelog
 

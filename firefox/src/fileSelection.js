@@ -10,7 +10,7 @@ async function newFileSelection(config, storeName, selector, defaultName) {
     const saveBtn = el.querySelector(".file-list-save")
     const deleteBtn = el.querySelector(".file-list-delete")
     const editBtn = el.querySelector(".file-list-edit")
-    const textarea = el.querySelector("textarea")
+    const textarea = el.querySelector("#toolbox")
     /* Utils */
 
     function createOption(filename) {

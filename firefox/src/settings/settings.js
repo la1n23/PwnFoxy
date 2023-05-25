@@ -4,18 +4,28 @@ async function main() {
     const configEl = [
         [$("burphost"), "burpProxyHost"],
         [$("burpport"), "burpProxyPort"],
+        [$('containers'), 'containers'],
     ]
-
 
     /* Config to form */
     configEl.forEach(([el, configName]) => {
-        config.get(configName).then(v => el.value = v)
+        config.get(configName).then(v => {
+            if (configName === 'containers') {
+                el.value = JSON.stringify(v, null, 2)
+            } else {
+                el.value = v
+            }
+        })
     })
 
     /* Form to config */
     document.querySelector("form").addEventListener("submit", ev => {
         configEl.forEach(([el, configName]) => {
-            config.set(configName, el.value)
+            if (configName === 'containers') {
+                config.set(configName, JSON.parse(el.value))
+            } else {
+                config.set(configName, el.value)
+            }
         })
     });
     newFileSelection(config, "savedToolbox", "#savedToolbox", 'toolbox')

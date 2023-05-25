@@ -25,9 +25,20 @@ const defaultConfig = {
 */
     
 return data
-`}
+`},
+    containers: {
+        list: [
+            { color: "blue", note: '', headers: [{ name: 'X-PwnFoxy-Custom', value: 'test'}] },
+            { color: "turquoise", note: '', headers: []  },
+            { color: "green", note: '', headers: []  },
+            { color: "yellow", note: '', headers: []  },
+            { color: "orange", note: '', headers: []  },
+            { color: "red", note: '', headers: []  },
+            { color: "pink", note: '', headers: []  },
+            { color: "purple", note: '', headers: []  },
+        ]
+    }
 }
-
 
 const config = {
     async get(key) {
@@ -36,6 +47,10 @@ const config = {
     },
     async set(key, value) {
         return await browser.storage.local.set({ [key]: value })
+    },
+    async getContainerByColor(color) {
+        const containers = await this.get('containers')
+        return containers.list.find(c => c.color === color);  
     },
     onChange(key, handler) {
         return browser.storage.onChanged.addListener((changes, areaName) => {

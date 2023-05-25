@@ -88,28 +88,30 @@ class UseBurpProxyContainers extends Feature {
 /* Add Color Headers */
 
 
-async function colorHeaderHandler(e) {
+const createColorHeaderHandler = config => async function colorHeaderHandler(e) {
     if (e.tabId < 0) return
 
-    const colorMap = {
-        blue: "blue",
-        turquoise: "cyan",
-        green: "green",
-        yellow: "yellow",
-        orange: "orange",
-        red: "red",
-        pink: "pink",
-        purple: "magenta",
-    }
     const { cookieStoreId } = await browser.tabs.get(e.tabId)
     if (cookieStoreId === "firefox-default") {
         return {}
     }
     const identity = await browser.contextualIdentities.get(cookieStoreId)
-    if (identity.name.startsWith("PwnFox-")) {
-        const name = "X-PwnFox-Color"
-        const value = colorMap[identity.color]
-        e.requestHeaders.push({ name, value })
+    if (identity.name.startsWith("Pwn/")) {
+        const color = identity.name.split('/').pop();
+        e.requestHeaders.push({ name: "X-PwnFoxy-Color", value: color })
+        const { note, headers } = await config.getContainerByColor(color);
+        if (note) {
+            const noteHeader = `X-PwnFoxy-Note`;
+            e.requestHeaders.push({ name: noteHeader, value: note })
+        }
+        if (headers && headers.length) {
+            headers.forEach(header => {
+                if (header.value && header.name) {
+                    e.requestHeaders.push(header)
+                }
+            })
+
+        }
     }
     return { requestHeaders: e.requestHeaders }
 }
@@ -117,20 +119,20 @@ async function colorHeaderHandler(e) {
 class AddContainerHeader extends Feature {
     constructor(config) {
         super(config, 'addContainerHeader')
+        this.colorHeaderHandler = createColorHeaderHandler(this.config);
     }
 
     async start() {
         super.start()
         if (!await this.config.get("enabled")) return
-
-        browser.webRequest.onBeforeSendHeaders.addListener(colorHeaderHandler,
+        browser.webRequest.onBeforeSendHeaders.addListener(this.colorHeaderHandler,
             { urls: ["<all_urls>"] },
             ["blocking", "requestHeaders"]
         );
     }
 
     stop() {
-        browser.webRequest.onBeforeSendHeaders.removeListener(colorHeaderHandler)
+        browser.webRequest.onBeforeSendHeaders.removeListener(this.colorHeaderHandler)
         super.stop()
     }
 }

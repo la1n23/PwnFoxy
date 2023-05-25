@@ -69,3 +69,10 @@ form {
 textarea {
     min-height: 300px;
 }
+
+.containers {
+    width: 100%;
+}
+.containers textarea {
+    width: 100%;
+}

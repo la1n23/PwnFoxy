@@ -116,74 +116,42 @@ h2:not(:first-child){
     width: var(--size);
     border-radius: 7px;
     cursor: pointer;
-    transition: .15s background-color, .1s transform;
+    transition: .15s filter, .1s transform;
 }
 
-.identity:active{
+.identity:hover{
+    filter: opacity(0.9);
     transform: scale(.9);
-
 }
 
 .identity.blue {
-    background: var(--blue-50);
-}
-
-.identity.blue:hover {
-    background: var(--blue-70);
+    background-color: #37ADFF;
 }
 
 .identity.turquoise {
-    background: var(--teal-50);
-}
-
-.identity.turquoise:hover {
-    background: var(--teal-70);
+    background-color: #00C79A;
 }
 
 .identity.green {
-    background: var(--green-50);
-}
-
-.identity.green:hover {
-    background: var(--green-70);
+    background-color: #51CD00;
 }
 
 .identity.yellow {
-    background: var(--yellow-50);
-}
-
-.identity.yellow:hover {
-    background: var(--yellow-70);
+    background-color: #FFCB00;
 }
 
 .identity.orange {
-    background: var(--orange-50);
-}
-
-.identity.orange:hover {
-    background: var(--orange-70);
+    background-color: #FF9F00;
 }
 
 .identity.red {
-    background: var(--red-50);
-}
-
-.identity.red:hover {
-    background: var(--red-70);
+    background-color: #FF613D;
 }
 
 .identity.pink {
-    background: var(--magenta-50);
-}
-
-.identity.pink:hover {
-    background: var(--magenta-70);
+    background-color: #FF4BDA;
 }
 
 .identity.purple {
-    background: var(--purple-50);
-}
-
-.identity:hover.purple {
-    background: var(--purple-70);
+    background-color: #AF51F5;
 }

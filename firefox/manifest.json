@@ -1,14 +1,15 @@
 {
-  "description": "Pwnfox",
+  "description": "Better version of PwnFox",
   "manifest_version": 2,
-  "name": "PwnFox",
-  "version": "1.0.2",
+  "name": "PwnFoxy",
+  "version": "1.0.5",
   "icons": {
     "48": "icons/icon.svg"
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "PwnFox@bi.tk"
+      "id": "PwnFoxy@la1n23.xyz",
+      "strict_min_version": "91.1.0"
     }
   },  
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
@@ -33,7 +34,7 @@
     "default_icon": {
       "48": "icons/icon.svg"
     },
-    "default_title": "PwnFox",
+    "default_title": "PwnFoxy",
     "browser_style": true
   },
   "background": {
