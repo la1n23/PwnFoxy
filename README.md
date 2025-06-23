@@ -1,4 +1,5 @@
-# <img src="/firefox/icons/icon.svg" width=30> PwnFoxy
+![icon](/firefox/icons/icon.svg)
+# PwnFoxy
 
 Better version of [PwnFox](https://github.com/yeswehack/PwnFox)
 
