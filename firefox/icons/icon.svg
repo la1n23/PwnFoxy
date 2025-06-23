@@ -17,21 +17,21 @@
         <use xlink:href="#ld" stroke="black" stroke-width="10" fill="#f63"/>
         
         <!-- Inner Ear Shades -->
-        <path d="M24 10 L35 25 Q20 30 24 10" fill="pink" opacity="0.6"/>
-        <path d="M104 10 L93 25 Q108 30 104 10" fill="pink" opacity="0.6"/>
+        <path d="M24 10 L35 25 Q20 30 24 10" fill="black" opacity="0.6"/>
+        <path d="M104 10 L93 25 Q108 30 104 10" fill="black" opacity="0.6"/>
 
         <!-- Kawaii Eyes -->
-        <ellipse cx="48" cy="62" rx="6" ry="8" fill="black"/>
-        <circle cx="46" cy="60" r="2" fill="white"/>
+        <ellipse cx="48" cy="62" rx="7" ry="9" fill="black"/>
+        <circle cx="46" cy="60" r="3" fill="white"/>
         <circle cx="50" cy="64" r="1.2" fill="white"/>
         
-        <ellipse cx="80" cy="62" rx="6" ry="8" fill="black"/>
-        <circle cx="78" cy="60" r="2" fill="white"/>
+        <ellipse cx="80" cy="62" rx="7" ry="9" fill="black"/>
+        <circle cx="78" cy="60" r="3" fill="white"/>
         <circle cx="82" cy="64" r="1.2" fill="white"/>
 
         <!-- Blush -->
-        <ellipse cx="36" cy="72" rx="4" ry="2.5" fill="pink" opacity="0.7"/>
-        <ellipse cx="92" cy="72" rx="4" ry="2.5" fill="pink" opacity="0.7"/>
+        <ellipse cx="36" cy="72" rx="5" ry="2.5" fill="pink" opacity="0.9"/>
+        <ellipse cx="92" cy="72" rx="5" ry="2.5" fill="pink" opacity="0.9"/>
 
         <!-- Nose -->
         <circle cx="64" cy="110" r="12"/>
