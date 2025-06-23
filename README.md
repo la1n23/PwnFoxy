@@ -27,7 +27,7 @@ You can find the latest build here:
 [https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/](https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/)
 
 ### Burp
-- Go to extender and add `PwnFoxy-Burp.jar` as a java extension.
+- Go to extender and add `PwnFoxy-$version.jar` as a java extension.
 
 ## Build
 
@@ -39,11 +39,12 @@ web-ext build
 # the zip file is available in /firefox/web-ext-artifacts/pwnfox-${version}.zip
 # Optional. If you want to sign you own build
 web-ext sign --api-key="$KEY" --api-secret="$SECRET"
+# rename
+mv firefox/web-ext-artifacts/*.xpi firefox/web-ext-artifacts/$(ls firefox/web-ext-artifacts -1 | grep xpi | perl -pe 's/^\w+\-/pwnfoxy-/')
 # the xpi file is available in /firefox/web-ext-artifacts/pwnfox-${version}.xpi
 
 ```
 ### Burp
 
 Open and compile with Intellij IDEA (Ctrl+F9)
-
 

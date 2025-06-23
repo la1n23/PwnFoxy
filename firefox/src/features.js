@@ -110,7 +110,6 @@ const createColorHeaderHandler = config => async function colorHeaderHandler(e) 
                     e.requestHeaders.push(header)
                 }
             })
-
         }
     }
     return { requestHeaders: e.requestHeaders }
