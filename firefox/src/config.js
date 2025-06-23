@@ -28,14 +28,19 @@ return data
 `},
     containers: {
         list: [
-            { color: "blue", note: '', headers: [{ name: 'X-PwnFoxy-Custom', value: 'test'}] },
-            { color: "turquoise", note: '', headers: []  },
-            { color: "green", note: '', headers: []  },
-            { color: "yellow", note: '', headers: []  },
-            { color: "orange", note: '', headers: []  },
-            { color: "red", note: '', headers: []  },
-            { color: "pink", note: '', headers: []  },
-            { color: "purple", note: '', headers: []  },
+            { 
+                color: "blue", 
+                note: '', 
+                headers: [], 
+                matchAndReplace: [], 
+            },
+            { color: "turquoise", note: '', headers: [], matchAndReplace: []  },
+            { color: "green", note: '', headers: [], matchAndReplace: []   },
+            { color: "yellow", note: '', headers: [], matchAndReplace: []   },
+            { color: "orange", note: '', headers: [], matchAndReplace: []   },
+            { color: "red", note: '', headers: [], matchAndReplace: []   },
+            { color: "pink", note: '', headers: [], matchAndReplace: []   },
+            { color: "purple", note: '', headers: [], matchAndReplace: []   },
         ]
     }
 }
@@ -51,6 +56,9 @@ const config = {
     async getContainerByColor(color) {
         const containers = await this.get('containers')
         return containers.list.find(c => c.color === color);  
+    },
+    async resetContainers() {
+        return this.set('containers', defaultConfig.containers)    
     },
     onChange(key, handler) {
         return browser.storage.onChanged.addListener((changes, areaName) => {

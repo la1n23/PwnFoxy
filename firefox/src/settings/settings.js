@@ -29,6 +29,14 @@ async function main() {
         })
     });
     newFileSelection(config, "savedToolbox", "#savedToolbox", 'toolbox')
+
+    document.querySelector('#reset-containers').addEventListener('click', () => {
+        config.resetContainers().then(() => {
+            config.get('containers').then(v => {
+                $('containers').value = JSON.stringify(v, null, 2);
+            })
+        });
+    })
 }
 
 document.addEventListener("DOMContentLoaded", main)

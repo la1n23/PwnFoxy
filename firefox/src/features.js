@@ -86,7 +86,19 @@ class UseBurpProxyContainers extends Feature {
 
 
 /* Add Color Headers */
-
+const matchAndReplaceHeaders = (headers, rules) => {
+    headers.forEach((header, i) => {
+        let h = `${header.name}: ${header.value}`;
+        for (const { match, replace } of rules) {
+            if (match && h.match(match)) {
+                h = h.replace(new RegExp(match), replace);
+            }
+        }
+        const [newName, newValue] = h.split(': ');
+        headers[i].name = newName;
+        headers[i].value = newValue;
+    });
+}
 
 const createColorHeaderHandler = config => async function colorHeaderHandler(e) {
     if (e.tabId < 0) return
@@ -99,7 +111,7 @@ const createColorHeaderHandler = config => async function colorHeaderHandler(e) 
     if (identity.name.startsWith("Pwn/")) {
         const color = identity.name.split('/').pop();
         e.requestHeaders.push({ name: "X-PwnFoxy-Color", value: color })
-        const { note, headers } = await config.getContainerByColor(color);
+        const { note, headers, matchAndReplace } = await config.getContainerByColor(color);
         if (note) {
             const noteHeader = `X-PwnFoxy-Note`;
             e.requestHeaders.push({ name: noteHeader, value: note })
@@ -110,6 +122,9 @@ const createColorHeaderHandler = config => async function colorHeaderHandler(e) 
                     e.requestHeaders.push(header)
                 }
             })
+        }
+        if (matchAndReplace && matchAndReplace.length) {
+            matchAndReplaceHeaders(e.requestHeaders, matchAndReplace)
         }
     }
     return { requestHeaders: e.requestHeaders }
