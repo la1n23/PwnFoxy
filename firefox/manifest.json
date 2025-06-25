@@ -2,13 +2,13 @@
   "description": "Better version of PwnFox",
   "manifest_version": 2,
   "name": "PwnFoxy",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "icons": {
     "48": "icons/icon.svg"
   },
   "browser_specific_settings": {
     "gecko": {
-      "id": "PwnFoxy@la1n23.xyz",
+      "id": "PwnFoxy@la1n23.lol",
       "strict_min_version": "91.1.0"
     }
   },  
