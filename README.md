@@ -12,17 +12,17 @@ If you are not familiar with PwnFox, check the link above first.
 
 ### Consistent colors
 
-PwnFoxy uses Firefox name of colors everywhere including headers so you don't need keep asking yourself "Is it turquoise or cyan?" while switching between Burp and Firefox: \
+PwnFoxy uses Firefox color names everywhere including headers so you don't need keep asking yourself "Is it turquoise or cyan?" while switching between Burp and Firefox: \
 ![burp](/screenshots/burp.png) \
-Colors on the extension popup now also match visually the colors that Firefox uses to highlight container tabs and allows you to see what color it is along with the note:\
+Colors on the extension popup now also match visually the colors that Firefox uses to highlight container tabs, it allows also you to see color name and container note if any: \
 ![containers](/screenshots/containers.png)
 ![tabs](/screenshots/tabs.png)
 
 ### Settings for containers
 
-It finally ends "Who the hell is blue? I need to check JWT payload again" problem. Each container now can be configured with `X-PwnFoxy-Note` extra header that automatically adds a comment to the requests in Burp HTTP history. It's good place to add account username/email so you never forget connection between used color and actual account: \
+It finally ends "Who the hell is blue? I need to check JWT payload again" problem. Each container now can be configured with `X-PwnFoxy-Note` additional header that automatically adds a comment to the request in Burp HTTP history. It's good place to add account username/email so you never forget connection between used color and actual account: \
 ![notes](/screenshots/notes.png) \
-And here is bonus **headers modification**: you can add any extra headers to specific container and also rewrite the sent headers. Here is example of container settings:
+And here is bonus **headers modification**: you can add any extra headers to a specific container and also rewrite the sent headers. Here is example of the container settings:
 ```json
 { 
     "color": "turquoise", 
@@ -31,7 +31,7 @@ And here is bonus **headers modification**: you can add any extra headers to spe
     "matchAndReplace": [{ "match": "^Cookie: .+?(access_token=[^;]+);.+$", "replace": "Cookie: $1;" }], 
 }
 ```
-It adds a new header `X-PwnFoxy-Custom: test` and clean `Cookie` to contian only `access_token`.
+It adds a new header `X-PwnFoxy-Custom: test` and cleans `Cookie` header to contian only `access_token` cookie.
 
 ## Installation
 
@@ -44,7 +44,7 @@ You can find the latest build here:
 [https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/](https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/)
 
 ### Burp
-- Go to extender and add `PwnFoxy-$version.jar` as a java extension.
+- Go to the extensions tab, click Add and use `PwnFoxy-$version.jar` as a java extension.
 
 ## Build
 
@@ -59,7 +59,7 @@ web-ext build
 web-ext sign --api-key="$KEY" --api-secret="$SECRET" --channel="unlisted"
 # rename
 mv firefox/web-ext-artifacts/*.xpi firefox/web-ext-artifacts/$(ls firefox/web-ext-artifacts -1 | grep xpi | perl -pe 's/^\w+\-/pwnfoxy-/')
-# the xpi file is available in /firefox/web-ext-artifacts/pwnfox-${version}.xpi
+# the xpi file is available at /firefox/web-ext-artifacts/pwnfox-${version}.xpi
 
 ```
 ### Burp
