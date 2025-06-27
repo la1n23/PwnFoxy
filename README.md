@@ -19,7 +19,8 @@ Colors on the extension popup now also match visually the colors that Firefox us
 
 ### Settings for containers
 
-It finally ends "Who the hell is blue? I need to check JWT payload again" problem. Each container now can be configured with `X-PwnFoxy-Note` extra header that automatically adds a comment to the requests in Burp HTTP history. It's good place to add account username/email so you never forget connection between used color and actual account.
+It finally ends "Who the hell is blue? I need to check JWT payload again" problem. Each container now can be configured with `X-PwnFoxy-Note` extra header that automatically adds a comment to the requests in Burp HTTP history. It's good place to add account username/email so you never forget connection between used color and actual account: \
+![notes](/screenshots/notes.png) \
 And here is bonus **headers modification**: you can add any extra headers to specific container and also rewrite the sent headers. Here is example of container settings:
 ```json
 { 
