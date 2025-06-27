@@ -16,6 +16,7 @@ PwnFoxy uses Firefox name of colors everywhere including headers so you don't ne
 ![burp](/screenshots/burp.png) \
 Colors on the extension popup now also match visually the colors that Firefox uses to highlight container tabs and allows you to see what color it is along with the note:\
 ![containers](/screenshots/containers.png)
+![tabs](/screenshots/tabs.png)
 
 ### Settings for containers
 
