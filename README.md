@@ -4,7 +4,7 @@
 Better version of [PwnFox](https://github.com/yeswehack/PwnFox)
 
 ## Why?
-PwnFox is a great tool, but it lacks UX best practices and some minor features.
+PwnFox is a great tool, but it lacks UX best practices and some minor features. Also it's no longer maintained.
 
 ## Main changes
 
@@ -22,7 +22,7 @@ Colors on the extension popup now also match visually the colors that Firefox us
 
 It finally ends "Who the hell is blue? I need to check JWT payload again" problem. Each container now can be configured with `X-PwnFoxy-Note` additional header that automatically adds a comment to the request in Burp HTTP history. It's good place to add account username/email so you never forget connection between used color and actual account: \
 ![notes](/screenshots/notes.png) \
-And here is bonus **headers modification**: you can add any extra headers to a specific container and also rewrite the sent headers. Here is example of the container settings:
+And here's a bonus: **headers modification**. You can add any extra headers to a specific container and also rewrite existing ones. Here's example of the container settings:
 ```json
 { 
     "color": "turquoise", 
@@ -35,14 +35,16 @@ It adds a new header `X-PwnFoxy-Custom: test` and cleans `Cookie` header to cont
 
 ## Installation
 
-You can find the latest build here:
-* [https://github.com/la1n23/PwnFoxy/releases](https://github.com/la1n23/PwnFoxy/releases)
-
 ### Firefox
  - Install from [https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/](https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/)
 
 ### Burp
-- Go to the extensions tab, click Add and use `PwnFoxy-$version.jar` as a java extension.
+- Download jar file here - [https://github.com/la1n23/PwnFoxy/releases](https://github.com/la1n23/PwnFoxy/releases)
+- Go to the Extensions tab, click Add and select `PwnFoxy-$version.jar` as a Java extension.
+
+## Migration from PwnFox
+
+Simply remove or disable PwnFox extensions in FireFox and Burp. No need to recreate the containers — just continue where you left off, but with PwnFoxy.
 
 ## Build
 
