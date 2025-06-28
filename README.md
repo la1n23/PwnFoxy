@@ -39,9 +39,7 @@ You can find the latest build here:
 * [https://github.com/la1n23/PwnFoxy/releases](https://github.com/la1n23/PwnFoxy/releases)
 
 ### Firefox
- - visit `about:addons` and choose install from file, then select `PwnFoxy-$version.xpi`
- - or install from 
-[https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/](https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/)
+ - Install from [https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/](https://addons.mozilla.org/en-US/firefox/addon/pwnfoxy/)
 
 ### Burp
 - Go to the extensions tab, click Add and use `PwnFoxy-$version.jar` as a java extension.
