@@ -108,8 +108,8 @@ const createColorHeaderHandler = config => async function colorHeaderHandler(e) 
         return {}
     }
     const identity = await browser.contextualIdentities.get(cookieStoreId)
-    if (identity.name.startsWith("Pwn/")) {
-        const color = identity.name.split('/').pop();
+    if (identity.name.startsWith("PwnFox-")) {
+        const color = identity.name.split('-').pop();
         e.requestHeaders.push({ name: "X-PwnFoxy-Color", value: color })
         const { note, headers, matchAndReplace } = await config.getContainerByColor(color);
         if (note) {

@@ -2,7 +2,7 @@
 
 /* Containers Identity */
 async function getOrCreateIdentity(color) {
-    const containerColor = `Pwn/${color}`
+    const containerColor = `PwnFox-${color}`
     const icon = "fingerprint"
     const [identity] = await browser.contextualIdentities.query({ name: containerColor })
     if (identity !== undefined) {
